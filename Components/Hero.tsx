@@ -7,6 +7,7 @@ import { heroVideo, smallHeroVideo } from '@/utils'
 
 const Hero = () => {
     const [videoSrc, setVideoSrc] = useState<string | null>(null);
+
     const handleVideoSetSrc = useCallback(() => {
       if (typeof window !== 'undefined') {
         if (window.innerWidth < 760) {
@@ -41,6 +42,10 @@ const Hero = () => {
             delay: 1.5
         })
     ),[])
+
+    if (videoSrc === null) {
+      return <div>Loading...</div>; // Or any loading UI while videoSrc is not yet set
+    }
 
   return (
         <section className='w-full bg-black relative'>
