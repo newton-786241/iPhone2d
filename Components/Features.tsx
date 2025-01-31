@@ -4,7 +4,6 @@ import { explore1Img, explore2Img, exploreVideo } from '@/utils';
 import React, { useRef } from 'react'
 import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
-import { animateWithGsap } from '@/app/utils/animations';
 import gsap from 'gsap';
 
 const Features = () => {
@@ -23,16 +22,18 @@ const Features = () => {
     })
 
     gsap.to('#features_title', {y:0, opacity: '1'})
-
-    animateWithGsap(
-      '.g_grow',
-      {scale:1, opacity: 1, ease: 'power1'},
-      {scrub : 5.5}
-    );
-    animateWithGsap(
-      '.g_text',
-      {y:0, opacity: 1, ease:'power2.inOut', duration: 1}
-    );
+    gsap.to('.g_text',{y: 0, opacity: 1, ease: 'power2.inOut', duration: 1})
+    gsap.to('.g_grow', {
+      scrollTrigger:{
+        trigger:'.g_grow',
+        toggleActions: 'play pause reverse restart',
+        start: '-10% bottom',
+        scrub: 5.5
+      },
+      scale: 1,
+      opacity: 1,
+      ease: 'power1'
+    })
   })
 
   

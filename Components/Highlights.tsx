@@ -10,7 +10,6 @@ import VideoCarousel from './VideoCarousel'
 const Highlights = () => {
 
     useGSAP(()=>(
-
         gsap.fromTo(
             ("#link"), 
             {y: 20, opacity:0},
