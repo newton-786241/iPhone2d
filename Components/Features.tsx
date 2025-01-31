@@ -8,7 +8,7 @@ import { animateWithGsap } from '@/app/utils/animations';
 import gsap from 'gsap';
 
 const Features = () => {
-  const videoRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useGSAP(()=>{
     gsap.to('#explorevideo', {
@@ -18,9 +18,7 @@ const Features = () => {
         start: '-10% bottom',
       },
       onComplete: () => {
-        if (videoRef.current) {
-            videoRef.current.play();
-          }
+        videoRef.current?.play()
       }
     })
 
@@ -54,7 +52,7 @@ const Features = () => {
 
             <div className='flex-center flex-col sm:px-10'>
               <div className='relative h-[50vh] w-full items-center pb-5'>
-                <video playsInline id="explorevideo" className='w-full h-full object-cover object-center' preload='none' muted ref={videoRef}>
+                <video playsInline id="explorevideo" className='w-full h-full object-cover object-center' preload='none' muted autoPlay ref={videoRef}>
                   <source src={exploreVideo} type="video/mp4"/>
                 </video>
               </div>

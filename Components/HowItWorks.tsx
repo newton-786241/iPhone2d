@@ -8,7 +8,7 @@ import gsap from 'gsap'
 import { Power2 } from 'gsap'
 
 const HowItWorks = () => {
-    const videoRef = useRef(null)
+    const videoRef = useRef<HTMLVideoElement | null>(null);
     useGSAP(()=>{
         gsap.to('#hiwVideo', {
             scrollTrigger : {
@@ -17,7 +17,7 @@ const HowItWorks = () => {
               start: '-10% bottom',
             },
             onComplete: () => {
-              videoRef.current.play();
+              videoRef.current?.play();
             }
           })
         gsap.from('#chip', {
