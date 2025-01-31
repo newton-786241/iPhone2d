@@ -6,21 +6,19 @@ import { useGSAP } from '@gsap/react'
 import { heroVideo, smallHeroVideo } from '@/utils'
 
 const Hero = () => {
-    const [videoSrc, setVideoSrc] = useState(() => {
-        return window.innerWidth < 760 ? smallHeroVideo : heroVideo;        
-        return heroVideo;
-      });
-    const handleVideoSetSrc = useCallback(()=>{
-                if(window.innerWidth < 760){
-            setVideoSrc(smallHeroVideo)
-        }else{
-            setVideoSrc(heroVideo)
+    const [videoSrc, setVideoSrc] = useState<string | null>(null);
+    const handleVideoSetSrc = useCallback(() => {
+      if (typeof window !== 'undefined') {
+        if (window.innerWidth < 760) {
+          setVideoSrc(smallHeroVideo);
+        } else {
+          setVideoSrc(heroVideo);
         }
-    },[])
+      }
+    }, []);
     useEffect(() => {
-        if(typeof window !== 'undefined'){
-          handleVideoSetSrc()
-        }
+      if (typeof window !== 'undefined') {
+        handleVideoSetSrc();
         const handleResize = () => {
           handleVideoSetSrc();
         };
@@ -28,7 +26,8 @@ const Hero = () => {
         return () => {
           window.removeEventListener("resize", handleResize);
         };
-      }, [handleVideoSetSrc]);
+      }
+    }, [handleVideoSetSrc]);
     
     useGSAP(()=>(
         gsap.to(".hero-title",{
