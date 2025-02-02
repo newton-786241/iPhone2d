@@ -1,9 +1,9 @@
-import Features from "@/Components/Features";
-import Footer from "@/Components/Footer";
-import Hero from "@/Components/Hero";
-import Highlights from "@/Components/Highlights";
-import HowItWorks from "@/Components/HowItWorks";
-import Navbar from "@/Components/Navbar";
+import Features from "@/app/Components/Features";
+import Footer from "@/app/Components/Footer";
+import Hero from "@/app/Components/Hero";
+import Highlights from "@/app/Components/Highlights";
+import HowItWorks from "@/app/Components/HowItWorks";
+import Navbar from "@/app/Components/Navbar";
 
 export default function Home() {
   return (

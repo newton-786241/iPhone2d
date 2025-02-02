@@ -23,8 +23,8 @@ const HowItWorks = () => {
         gsap.from('#chip', {
             scrollTrigger: {
                 trigger: 'chip',
-                start: '20% bottom',
-                toggleActions : 'play pause reverse restart'
+                start: 'top center',
+                toggleActions : 'play pause none restart'
             },
             opacity: 0,
             scale: 1.5,
@@ -46,7 +46,7 @@ const HowItWorks = () => {
                 <Image src={chipImg} alt="chip" width={180} height={180} />
             </div>
             <div className='flex flex-col items-center'>
-                <h2 className='hiw-title'>
+                <h2 className='hiw-title text-white'>
                     A17 Pro Chip.
                     <br /> A monster win for gaming.
                 </h2>

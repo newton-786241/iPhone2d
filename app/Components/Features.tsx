@@ -47,13 +47,13 @@ const Features = () => {
 
           <div className='flex flex-col justify-center items-center overflow-hidden'>
             <div className='mt-32 mb-24 pl-24'>
-              <h2 className='text-5xl lg:text-7xl font-semibold'>iPhone</h2>
-              <h2 className='text-5xl lg:text-7xl font-semibold'>Forged in Titanium</h2>
+              <h2 className='text-5xl lg:text-7xl font-semibold text-white'>iPhone</h2>
+              <h2 className='text-5xl lg:text-7xl font-semibold text-white'>Forged in Titanium</h2>
             </div>
 
             <div className='flex-center flex-col sm:px-10'>
               <div className='relative h-[50vh] w-full items-center pb-5'>
-                <video playsInline id="explorevideo" className='w-full h-full object-cover object-center' preload='none' muted autoPlay ref={videoRef}>
+                <video playsInline id="explorevideo" className='w-full h-full object-cover object-center' preload='none' muted ref={videoRef}>
                   <source src={exploreVideo} type="video/mp4"/>
                 </video>
               </div>

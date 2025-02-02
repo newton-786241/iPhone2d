@@ -5,8 +5,10 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { heroVideo, smallHeroVideo } from '@/utils'
 
+gsap.registerPlugin(useGSAP)
+
 const Hero = () => {
-    const [videoSrc, setVideoSrc] = useState<string | null>(null);
+    const [videoSrc, setVideoSrc] = useState(heroVideo);
 
     const handleVideoSetSrc = useCallback(() => {
       if (typeof window !== 'undefined') {
@@ -30,7 +32,7 @@ const Hero = () => {
       }
     }, [handleVideoSetSrc]);
     
-    useGSAP(()=>(
+    useGSAP(()=>{
         gsap.to(".hero-title",{
             opacity: 1,
             y: -30,
@@ -41,11 +43,7 @@ const Hero = () => {
             y:-50,
             delay: 1.5
         })
-    ),[])
-
-    if (videoSrc === null) {
-      return <div>Loading...</div>; // Or any loading UI while videoSrc is not yet set
-    }
+      },[])
 
   return (
         <section className='w-full bg-black relative'>
