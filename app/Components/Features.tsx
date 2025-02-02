@@ -5,6 +5,7 @@ import React, { useRef } from 'react'
 import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { Power2 } from 'gsap';
 
 const Features = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -28,7 +29,16 @@ const Features = () => {
     opacity:1,
     y: 0
     })
-    gsap.to('.g_text',{y: 0, opacity: 1, ease: 'power2.inOut', duration: 1})
+   
+    gsap.to('.g_text', {
+      scrollTrigger:{
+        trigger: '.g_text',
+        start: '-10% bottom',
+      },
+      opacity: 1,
+      y: 0,
+      ease: Power2.easeInOut
+    })
     gsap.to('.g_grow', {
       scrollTrigger:{
         trigger:'.g_grow',
@@ -59,7 +69,7 @@ const Features = () => {
 
             <div className='flex-center flex-col sm:px-10'>
               <div className='relative h-[50vh] w-full items-center pb-5'>
-                <video playsInline id="explorevideo" className='w-full h-full object-cover object-center' preload='none' muted ref={videoRef}>
+                <video playsInline id="explorevideo" className='w-full h-full object-cover object-center' preload='auto' muted ref={videoRef}>
                   <source src={exploreVideo} type="video/mp4"/>
                 </video>
               </div>

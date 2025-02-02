@@ -80,7 +80,7 @@
   }
 
   .hiw-text {
-    @apply text-gray-300 text-xl font-normal md:font-semibold
+    @apply text-gray-300 text-xl font-normal md:font-semibold  translate-y-[100px]
   }
 
   .hiw-bigtext {
