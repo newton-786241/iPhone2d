@@ -21,7 +21,13 @@ const Features = () => {
       }
     })
 
-    gsap.to('#features_title', {y:0, opacity: '1'})
+    gsap.to('#features_title', {scrollTrigger : {
+      trigger: '#features_title',
+      start: '10% bottom'
+    },
+    opacity:1,
+    y: 0
+    })
     gsap.to('.g_text',{y: 0, opacity: 1, ease: 'power2.inOut', duration: 1})
     gsap.to('.g_grow', {
       scrollTrigger:{
